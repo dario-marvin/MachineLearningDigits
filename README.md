@@ -1,14 +1,11 @@
 # MachineLearningDigits
 
-# !!! WORK IN PROGRESS. COME BACK LATER!!!
-
 ## Introduction
 The key idea of this project is the following: suppose you have to digitalise and extract information from some documents, and a high quality scanner is not available, or high quality scans are too expensive in terms of time or storage memory. Is it then still possible to recover the information contained on the (bad) scans? 
 
 In practice, we want to build a homemade Optical Character Recognition (OCR) machine using techniques form supervised Machine Learning (ML).
 For the moment, we only consider digits, but an upgrade using a similar approach for recognizing letters and words is easily generalizable and will be implemented in the near future.
-To verify our idea, we created a dataset using a low quality scan of a sheet of paper containing a long sequence of digits. Each number on the sheet is individually extracted using techniques from image processing and the list of its pixel values is saved. The data are then analyzed with different ML classifiers and the results are plotted and commented.    
-
+To verify our idea, we created a dataset using a low quality scan of a sheet of paper containing a long sequence of digits. Each number on the sheet is individually extracted using techniques from image processing and the list of its pixel values is saved. The data are then analyzed with different ML classifiers and the results are plotted and commented.
 
 ## Methodology
 ### Document creation
@@ -76,7 +73,6 @@ Accuracy of SVM classifier on training set: 1.0
 Accuracy of SVM classifier on test set: 0.09
 
 ```
-
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
 </p>
