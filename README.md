@@ -3,6 +3,10 @@
 # !!! WORK IN PROGRESS. COME BACK LATER!!!
 
 ## Introduction
+The key idea of this project is the following: suppose you have to digitalise some documents, but an high quality scanner is not available, or high quality scans are too expensive in terms of time or storage memory.
+Is it still possible to recover the information contained on the (bad) scans? 
+
+
 In this project we want to build an Optical Character Recognition (OCR) machine using techniques form Machine Learning (ML). To do so we created our own dataset using a low quality scan of a sheet of paper containing a long sequence of digits. Each number on the sheet is then extracted using techniques from image processing and a list of the pixels is saved. The pixels are then analyzed with different ML classifiers and the results are plotted    
 
 
