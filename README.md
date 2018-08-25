@@ -26,7 +26,9 @@ In the next images you can see part of the resulting PNG image, and a detail of 
 
 ### Dataset extraction
 
-Of course, it would be unthinkable to manually save the pixels of every single digit in the sequence, so we used image processing instead. As a first step, for every pixel row in the image we compute the mean of the values of the pixels composing it, and select those with a value smaller than a fixed threshold, i.e. whose pixels are generally light and thus do not contain numbers. To visualize this process, we colored in white the lines that are supposed not contain numbers in the previous image
+Of course, it would be unthinkable to manually save the pixels of every single digit in the sequence, so we used image processing instead. As a first step, for every row of pixels composing the image we compute its mean. If there are only clear pixels, i.e. it is not a row containing numbers, its mean will be relatively high (remember white RBG value is 255 and black is 0). If instead we cross some darker pixels, the mean will be lower.
+
+Thus we select all rows with mean pixel value higher than a fixed threshold and color them in white, to show how the process works.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_modified_ex.png">
