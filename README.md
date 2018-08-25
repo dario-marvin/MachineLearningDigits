@@ -121,3 +121,6 @@ Since only 3 predictions are wrong, we plot the images in question, together wit
 
 
 ## Conclusion and future works
+We showed it is possible to retrieve the correct values of some badly scanned digits with a precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbours approach.
+
+In the near future we plan to test this kind of approach on single badly scanned letters of the alphabet, and later on with complete words in a phrase.
