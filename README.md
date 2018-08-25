@@ -109,8 +109,11 @@ avg / total       1.00      1.00      1.00      1000
  [  0   0   0   0   0   0   0   0   0 109]]
 
 ```
-
+Since only 3 predictions are wrong, we plot the images in question, together with real and predicted values.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
 </p>
+
+
+## Conclusion and future works
