@@ -26,13 +26,21 @@ In the next images you can see part of the resulting PNG image, and a detail of 
 
 ### Dataset extraction
 
-Of course, it would be unthinkable to manually save the pixels of every single digit in the sequence, so we used image processing instead. As a first step, for every row of pixels composing the image we compute its mean. If there are only clear pixels, i.e. it is not a row containing numbers, its mean will be relatively high (remember white RBG value is 255 and black is 0). If instead we cross some darker pixels, the mean will be lower.
+Of course, it is unthinkable to manually save the pixels of every single digit in the sequence, so we used image processing instead. As a first step, for every row of pixels composing the image we compute its mean. If there are only clear pixels, i.e. it is not a row containing numbers, its mean will be relatively high (remember white RBG value is 255 and black is 0). If instead we cross some darker pixels, the mean will be lower.
 
-Thus we select all rows with mean pixel value higher than a fixed threshold and color them in white, to show how the process works.
+Thus we select all rows with mean pixel value higher than a fixed threshold and to illustrate how the process works we color them in white on the previous image.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_modified_ex.png">
 </p>
+
+At this point the remaining stripes of pixels separated by white lines should contain all our numbers. Still, we have to separate them from each other. 
+
+
+
+
+The idea is similar to the preeceding method: for each stripe we compute the mean of the pixel values vertically over the stripe. We start with the leftmost column of pixels in the first stripe and search until the mean shows a value smaller than a fixed threshold, showing that column contains some dark pixels, hence a number. From there we decided to select the previous column (even if it has only clear pixels) and the successive 5, so that each image of a digit has dimension 6 in width and 7 in heigth 
+
 
 
 ### Data analysis
