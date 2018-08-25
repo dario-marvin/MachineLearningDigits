@@ -34,14 +34,11 @@ Thus we select all rows with mean pixel value higher than a fixed threshold and 
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_modified_ex.png">
 </p>
 
-At this point the remaining stripes of pixels separated by white lines should contain all our numbers. Still, we have to separate them from each other. 
+At this point the remaining stripes of pixels separated by white lines should contain all our numbers. In a perfect world, all stripes would have the same heigth; sadly, it's not our case, so we decided to set universal height 7 pixels for every number image, and in case a stripe was 8 pixel tall we decided to ignore the upper or lower line depending on the value of the information contained, i.e. we exclude the one with highest pixel mean value (i.e. the clearest between the two).  
 
+We now still have to separate each number  from each other. The idea is similar to the preeceding method: for each stripe we compute the mean of the pixel values vertically. We start with the leftmost column of pixels in the stripe and search until the mean shows a value smaller than a fixed threshold, meaning that the column contains some dark pixels, hence a number. From there we select the previous column (even if it has only clear pixels) and the successive 5, since that's the width in pixel of the average number. From there we start the search for dark pixels again until we reach the end of the stripe.
 
-
-
-The idea is similar to the preeceding method: for each stripe we compute the mean of the pixel values vertically over the stripe. We start with the leftmost column of pixels in the first stripe and search until the mean shows a value smaller than a fixed threshold, showing that column contains some dark pixels, hence a number. From there we decided to select the previous column (even if it has only clear pixels) and the successive 5, so that each image of a digit has dimension 6 in width and 7 in heigth 
-
-
+In the end, each image of a digit will be composed of 6 pixels in width and 7 in heigth.  
 
 ### Data analysis
 
