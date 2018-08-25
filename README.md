@@ -11,7 +11,7 @@ To verify our idea, we created a dataset using a low quality scan of a sheet of 
 
 
 ## Methodology
-#### Dataset creation
+### Document creation
 To create our dataset we generated a random sequence of 4290 single digits that can be observed in the file [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat). This sequence was then pasted into a normal A4 paper and a PDF file was created using LaTeX. The resulting file was printed in draft quality and subsequently scanned at lowest quality setting (75 dpi) and saved as a PNG image. 
 
 In the next images you can see part of the resulting PNG image, and a detail of the upper left corner.
@@ -24,6 +24,8 @@ In the next images you can see part of the resulting PNG image, and a detail of 
   <img width = 300 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_particular.png">
 </p>
 
+### Dataset extraction
+
 Of course, it would be unthinkable to manually save the pixels of every single digit in the sequence, so we used image processing instead. As a first step, for every pixel row in the image we compute the mean of the values of the pixels composing it, and select those with a value smaller than a fixed threshold, i.e. whose pixels are generally light and thus do not contain numbers. To visualize this process, we colored in white the lines that are supposed not contain numbers in the previous image
 
 <p align="center">
@@ -31,7 +33,7 @@ Of course, it would be unthinkable to manually save the pixels of every single d
 </p>
 
 
-#### Data analysis
+### Data analysis
 
 
 ## Results
