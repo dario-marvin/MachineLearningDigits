@@ -38,7 +38,11 @@ At this point the remaining stripes of pixels separated by white lines should co
 
 We now still have to separate each number  from each other. The idea is similar to the preeceding method: for each stripe we compute the mean of the pixel values vertically. We start with the leftmost column of pixels in the stripe and search until the mean shows a value smaller than a fixed threshold, meaning that the column contains some dark pixels, hence a number. From there we select the previous column (even if it has only clear pixels) and the successive 5, since that's the width in pixel of the average number. From there we start the search for dark pixels again until we reach the end of the stripe.
 
-In the end, each image of a digit will be composed of 6 pixels in width and 7 in heigth.  
+In the end, each image of a digit will be composed of 6 pixels in width and 7 in heigth. We show here the images extracted for the first 8 digits in the sequence, together with their value.
+
+<p align="center">
+  <img width=600 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/list_beginning.png">
+</p>
 
 ### Data analysis
 
