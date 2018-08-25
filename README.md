@@ -29,4 +29,65 @@ Of course, it would be unthinkable to manually save the pixels of every single d
 
 
 #### Data analysis
+
+
 ## Results
+
+```
+
+Accuracy of Decision Tree classifier on training set: 1.0
+Accuracy of Decision Tree classifier on test set: 0.872
+
+Accuracy of K-NN classifier on training set: 0.998480243161
+Accuracy of K-NN classifier on test set: 0.997
+
+/usr/local/lib/python3.5/dist-packages/sklearn/discriminant_analysis.py:442: UserWarning: The priors do not sum to 1. Renormalizing
+  UserWarning)
+Accuracy of LDA classifier on training set: 0.948024316109
+Accuracy of LDA classifier on test set: 0.901
+
+Accuracy of GNB classifier on training set: 0.887841945289
+Accuracy of GNB classifier on test set: 0.858
+
+Accuracy of SVM classifier on training set: 1.0
+Accuracy of SVM classifier on test set: 0.09
+
+```
+
+<p align="center">
+  <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
+</p>
+
+```             precision    recall  f1-score   support
+
+          0       0.98      1.00      0.99        85
+          1       0.99      1.00      0.99        98
+          2       1.00      1.00      1.00        99
+          3       1.00      1.00      1.00        95
+          4       1.00      0.99      1.00       115
+          5       1.00      1.00      1.00       101
+          6       1.00      0.98      0.99        95
+          7       1.00      1.00      1.00       113
+          8       1.00      1.00      1.00        90
+          9       1.00      1.00      1.00       109
+
+avg / total       1.00      1.00      1.00      1000
+
+
+[[ 85   0   0   0   0   0   0   0   0   0]
+ [  0  98   0   0   0   0   0   0   0   0]
+ [  0   0  99   0   0   0   0   0   0   0]
+ [  0   0   0  95   0   0   0   0   0   0]
+ [  0   1   0   0 114   0   0   0   0   0]
+ [  0   0   0   0   0 101   0   0   0   0]
+ [  2   0   0   0   0   0  93   0   0   0]
+ [  0   0   0   0   0   0   0 113   0   0]
+ [  0   0   0   0   0   0   0   0  90   0]
+ [  0   0   0   0   0   0   0   0   0 109]]
+
+
+```
+
+<p align="center">
+  <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
+</p>
