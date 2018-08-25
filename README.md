@@ -49,10 +49,11 @@ Since it is well known there is not a perfect general learning algorithm for eve
 - Gaussian naive Bayes (GNB)
 - Support Vector Machines (SVM)
 
+For each of these approaches we compare the prediction of the model with the real value for the 1000 images we left as test, but also in the training set.
+
 ## Results
 
 ```
-
 Accuracy of Decision Tree classifier on training set: 1.0
 Accuracy of Decision Tree classifier on test set: 0.872
 
@@ -76,6 +77,11 @@ Accuracy of SVM classifier on test set: 0.09
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
 </p>
 
+A couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs really poorly, as he classify every image always for the same value, thus getting the prediction right only 1/10 of the time.
+
+The method that performs the best in both the train and test sets is the k-nearest neighbours algorithm, with a score of 0.997 in the test set, meaning only 3 missclassification over the 1000 images analyzed. 
+For this one we print classification report and confusion matrix.
+
 ```             precision    recall  f1-score   support
 
           0       0.98      1.00      0.99        85
@@ -91,7 +97,6 @@ Accuracy of SVM classifier on test set: 0.09
 
 avg / total       1.00      1.00      1.00      1000
 
-
 [[ 85   0   0   0   0   0   0   0   0   0]
  [  0  98   0   0   0   0   0   0   0   0]
  [  0   0  99   0   0   0   0   0   0   0]
@@ -103,8 +108,8 @@ avg / total       1.00      1.00      1.00      1000
  [  0   0   0   0   0   0   0   0  90   0]
  [  0   0   0   0   0   0   0   0   0 109]]
 
-
 ```
+
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
