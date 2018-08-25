@@ -3,22 +3,18 @@
 # !!! WORK IN PROGRESS. COME BACK LATER!!!
 
 ## Introduction
-The key idea of this project is the following: suppose you have to digitalise and extract information from some documents, but an high quality scanner is not available, or high quality scans are too expensive in terms of time or storage memory. Is it then still possible to recover the information contained on the (bad) scans? 
+The key idea of this project is the following: suppose you have to digitalise and extract information from some documents, and a high quality scanner is not available, or high quality scans are too expensive in terms of time or storage memory. Is it then still possible to recover the information contained on the (bad) scans? 
 
 In practice, we want to build a homemade Optical Character Recognition (OCR) machine using techniques form Machine Learning (ML).
-For the moment, we only consider digits, but an upgrade using similar approach to recognize letters and words is easily generalizable and will be tried in the near future.
+For the moment, we only consider digits, but an upgrade using a similar approach for recognizing letters and words is easily generalizable and will be implemented in the near future.
 To verify our idea, we created a dataset using a low quality scan of a sheet of paper containing a long sequence of digits. Each number on the sheet is individually extracted using techniques from image processing and the list of its pixel values is saved. The data are then analyzed with different ML classifiers and the results are plotted and commented.    
 
 
 ## Methodology
 #### Dataset creation
-To create our dataset we generated a random sequence of 4290 space separated digits that can be observed in the file [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat) and pasted them in a normal A4 PDF file using LaTeX. The resulting sheet of paper looked like in the next figure
+To create our dataset we generated a random sequence of 4290 single digits that can be observed in the file [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat). This sequence was then pasted into a normal A4 paper and a PDF file was created using LaTeX. The resulting file was printed in draft quality and subsequently scanned at lowest quality setting (75 dpi) and saved as a PNG image. 
 
-<p align="center">
-  <img width = 600 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence_ex.png">
-</p>
-
-The sheet of paper was then scanned at the lowest resolution available (75 dpi) and saved as a PNG image
+In the next images you can see part of the resulting PNG image, and a detail of the upper left corner.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_ex.png">
