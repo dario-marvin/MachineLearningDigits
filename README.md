@@ -42,6 +42,12 @@ In the end, each image of a digit will be composed of 6 pixels in width and 7 in
 
 ### Data analysis
 
+Since it is well known there is not a perfect general learning algorithm for every problem, we explore many different approach and select the best one for this problem according to the results. We try:
+- Decision tree learning (DT)
+- k-nearest neighbors algorithm (KNN)
+- Linear discriminant analysis (LDA)
+- Gaussian naive Bayes (GNB)
+- Support Vector Machines (SVM)
 
 ## Results
 
