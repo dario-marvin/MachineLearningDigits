@@ -40,14 +40,14 @@ In the end, each image of a digit will be composed of 6 pixels in width and 7 in
 
 ### Data analysis
 
-Since it is well known there is not a perfect general learning algorithm for every problem, we explore many different approaches and select the best one for this problem according to the results. We try some of the most common methods for ML classidication, including:
+Since it is well known there is not a perfect general learning algorithm for every problem, we explore many different approaches and select the best one for this problem according to the results. We try some of the most common methods for ML classification, including:
 - Decision tree learning (DT)
 - k-nearest neighbors algorithm (KNN)
 - Linear discriminant analysis (LDA)
 - Gaussian naive Bayes (GNB)
 - Support Vector Machines (SVM)
 
-For each of these approaches we compare the prediction of the model with the real value for the 1000 images we left as test, but also in the training set.
+For each of these approaches we compare the predictions of the model with the real values for the 1000 images in the test set, and we also ask the algorithm to classify the images it used to train itself.
 
 ## Results
 
@@ -74,10 +74,10 @@ Accuracy of SVM classifier on test set: 0.09
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
 </p>
 
-A couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs really poorly, as he classify every image always for the same value, thus getting the prediction right only 1/10 of the time.
+A couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs poorly, as it classifies every image as the same value every time, thus getting the prediction right only 1/10 of the time.
 
-The method that performs the best in both the train and test sets is the k-nearest neighbours algorithm, with a score of 0.997 in the test set, meaning only 3 missclassification over the 1000 images analyzed. 
-For this one we print classification report and confusion matrix.
+The method that performs the best in both the train and test sets is the k-nearest neighbours algorithm, with a score of 0.997 in the test set, which means only 3 images were missclassified over the 1000 analyzed.  
+For this classifier we print classification report and confusion matrix.
 
 ```             precision    recall  f1-score   support
 
@@ -106,7 +106,7 @@ avg / total       1.00      1.00      1.00      1000
  [  0   0   0   0   0   0   0   0   0 109]]
 
 ```
-Since only 3 predictions are wrong, we plot the images in question, together with real and predicted values.
+From the confusion matrix we understand that 2 images whose real value was 6 were wrongly classified as 6 instead, and one 4 was classified as 1. We plot the images in question, together with their real and predicted values.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
@@ -114,6 +114,5 @@ Since only 3 predictions are wrong, we plot the images in question, together wit
 
 
 ## Conclusion and future works
-We showed it is possible to retrieve the correct values of some badly scanned digits with a precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbours approach.
-
-In the near future we plan to test this kind of approach on single badly scanned letters of the alphabet, and later on with complete words in a phrase.
+We showed it is possible to retrieve the correct values of some badly scanned digits with a precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbours approach.  
+In the near future we plan to continue using this approach on more and more complicated data, such as single badly scanned letters of the alphabet, and later complete words extracted from a real scanned book.
