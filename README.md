@@ -28,11 +28,11 @@ Thus we select all rows with mean pixel value higher than a fixed threshold and 
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_modified_ex.png">
 </p>
 
-At this point the remaining stripes of pixels separated by white lines should contain all our numbers. In a perfect world, all stripes would have the same heigth; sadly, it's not our case, so we decided to set universal height 7 pixels for every number image, and in case a stripe was 8 pixel tall we decided to ignore the upper or lower line depending on the value of the information contained, i.e. we exclude the one with highest pixel mean value (i.e. the clearest between the two).  
+At this point, the remaining stripes of pixels separated by white lines should contain all our numbers. In a perfect world, all stripes would have the same heigth, but sadly it's not our case, as it ranges from 7 to 9 pixel. So we decided to set universal height 7 pixels for every number image, and in case a stripe was 8 pixel tall we ignored the uppermost or lowermost row depending on which one has the highest pixel mean value (i.e. the clearest between the two, which should in theory contain less information).  
 
-We now still have to separate each number  from each other. The idea is similar to the preeceding method: for each stripe we compute the mean of the pixel values vertically. We start with the leftmost column of pixels in the stripe and search until the mean shows a value smaller than a fixed threshold, meaning that the column contains some dark pixels, hence a number. From there we select the previous column (even if it has only clear pixels) and the successive 5, since that's the width in pixel of the average number. From there we start the search for dark pixels again until we reach the end of the stripe.
+To capture the digit images on the stripes, the idea is similar to the preeceding method: for each column in the stripe we compute the mean of the pixel values. We start with the leftmost column and search until we obtain a mean value smaller than a fixed threshold, meaning that the column contains some dark pixels, hence a number. From there we select the previous column (even if it has only clear pixels) and the following 5, as that's the width in pixel of the average number. From there we start the search again until we find another number or we reach the end of the stripe.
 
-In the end, each image of a digit will be composed of 6 pixels in width and 7 in heigth. We show here the images extracted for the first 8 digits in the sequence, together with their value.
+In the end, each image of a digit will be composed of 6 pixels in width and 7 in heigth. We show here the images extracted for the first 8 digits in the sequence, together with their real value.
 
 <p align="center">
   <img width=600 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/list_beginning.png">
