@@ -8,8 +8,7 @@ In short, we want to build a homemade Optical Character Recognition (OCR) machin
 
 ## Methodology
 ### Document creation
-To create our dataset we generated a random sequence of 4290 single digits that can be observed in the file [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat). This sequence was then pasted into a normal A4 paper and a PDF file was created using LaTeX. The resulting file was printed in draft quality and subsequently scanned at lowest quality setting (75 dpi) and saved as a PNG image. 
-
+To create our dataset we generated a random sequence of 4290 single digits, which can be observed in the file [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat). A PDF file containing this sequence was then generated using LaTeX and the resulting file was printed in draft quality, scanned at lowest quality setting (75 dpi) and finally saved as a PNG image.  
 In the next images you can see part of the resulting PNG image, and a detail of the upper left corner.
 
 <p align="center">
