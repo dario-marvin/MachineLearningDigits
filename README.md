@@ -28,11 +28,11 @@ Thus we select all rows with mean pixel value higher than a fixed threshold and 
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_modified_ex.png">
 </p>
 
-At this point, the remaining stripes of pixels separated by white lines should contain all our numbers. In a perfect world, all stripes would have the same heigth, but sadly it's not our case, as it ranges from 7 to 9 pixel. So we decided to set universal height 7 pixels for every number image, and in case a stripe was 8 pixel tall we ignored the uppermost or lowermost row depending on which one has the highest pixel mean value (i.e. the clearest between the two, which should in theory contain less information).  
+At this point, the remaining stripes of pixels separated by white lines should contain all our numbers. In a perfect world, all stripes would have the same height, but sadly it's not our case, as it ranges from 7 to 9 pixel. So we decided to set universal height 7 pixels for every number image, and in case a stripe was 8 pixel tall we ignored the uppermost or lowermost row depending on which one has the highest pixel mean value (i.e. the clearest between the two, which should in theory contain less information).  
 
-To capture the digit images on the stripes, the idea is similar to the preeceding method: for each column in the stripe we compute the mean of the pixel values. We start with the leftmost column and search until we obtain a mean value smaller than a fixed threshold, meaning that the column contains some dark pixels, hence a number. From there we select the previous column (even if it has only clear pixels) and the following 5, as that's the width in pixel of the average number. From there we start the search again until we find another number or we reach the end of the stripe.
+To capture the digit images on the stripes, the idea is similar to the proceeding method: for each column in the stripe we compute the mean of the pixel values. We start with the leftmost column and search until we obtain a mean value smaller than a fixed threshold, meaning that the column contains some dark pixels, hence a number. From there we select the previous column (even if it has only clear pixels) and the following 5, as that's the width in pixel of the average number. From there we start the search again until we find another number or we reach the end of the stripe.
 
-In the end, each image of a digit will be composed of 6 pixels in width and 7 in heigth. We show here the images extracted for the first 8 digits in the sequence, together with their real value.
+In the end, each image of a digit will be composed of 6 pixels in width and 7 in height. We show here the images extracted for the first 8 digits in the sequence, together with their real value.
 
 <p align="center">
   <img width=600 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/list_beginning.png">
@@ -74,9 +74,9 @@ Accuracy of SVM classifier on test set: 0.09
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
 </p>
 
-A couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs poorly, as it classifies every image as the same value every time, thus getting the prediction right only 1/10 of the time.
+The results of the classification show some relatively good values, around 90% of success, although a couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs poorly, as it classifies every image as the same value every time, thus getting the prediction right only 1/10 of the time.
 
-The method that performs the best in both the train and test sets is the k-nearest neighbours algorithm, with a score of 0.997 in the test set, which means only 3 images were missclassified over the 1000 analyzed.  
+The method that performs the best in both the train and test sets is the k-nearest neighbors algorithm, with a score of 0.997 in the test set, which means only 3 images were misclassified over the 1000 analyzed.  
 For this classifier we print classification report and confusion matrix.
 
 ```             precision    recall  f1-score   support
@@ -114,5 +114,5 @@ From the confusion matrix we understand that 2 images whose real value was 6 wer
 
 
 ## Conclusion and future works
-We showed it is possible to retrieve the correct values of some badly scanned digits with a precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbours approach.  
+We showed it is possible to retrieve the correct values of some badly scanned digits with a precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbors approach.  
 In the near future we plan to continue using this approach on more and more complicated data, such as single badly scanned letters of the alphabet, and later complete words extracted from a real scanned book.
