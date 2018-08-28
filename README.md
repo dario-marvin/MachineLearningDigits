@@ -109,7 +109,7 @@ avg / total       1.00      1.00      1.00      1000
 From the confusion matrix we understand that 2 images whose real value was 6 were wrongly classified as 0 instead, and one 4 was classified as 1. We plot the images in question, together with their real and predicted values.
 
 <p align="center">
-  <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
+  <img size=500 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
 </p>
 
 
