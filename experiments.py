@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
@@ -135,8 +135,8 @@ for size in sizes:
     GNBclassifier = GaussianNB().fit(X_train, y_train)
     scores_gnb.append(GNBclassifier.score(X_test, y_test))
 
-    #~ SVCclassifier = SVC().fit(X_train, y_train)
-    #~ scores_svm.append(SVCclassifier.score(X_test, y_test))
+    SVCclassifier = LinearSVC().fit(X_train, y_train)
+    scores_svm.append(SVCclassifier.score(X_test, y_test))
 
 
 plt.figure()
@@ -144,9 +144,10 @@ plt.plot(sizes, scores_dt, 'r-*', label='DT')
 plt.plot(sizes, scores_knn, 'b-^', label='KNN')
 plt.plot(sizes, scores_lda, 'g-s', label='LDA')
 plt.plot(sizes, scores_gnb, 'm-<', label='GNB')
-#~ plt.plot(sizes, scores_svm, 'c->', label='SVM')
+plt.plot(sizes, scores_svm, 'c->', label='SVM')
 
-plt.axvline(x=210, color= 'k')
+plt.axvline(x=210, color='k')
+plt.axvline(x=500, color='k')
 plt.ylabel('Score')
 plt.xlabel('Train set size')
 plt.legend(loc='center right')

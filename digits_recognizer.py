@@ -7,7 +7,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
@@ -179,7 +179,7 @@ print()
 
 ### Support Vector Machines
 
-SVCclassifier = SVC().fit(X_train, y_train)
+SVCclassifier = LinearSVC().fit(X_train, y_train)
 SVCclassifier_score_train = SVCclassifier.score(X_train, y_train)
 SVCclassifier_score_test = SVCclassifier.score(X_test, y_test)
 print('Accuracy of SVM classifier on training set: ' + str(SVCclassifier_score_train))
