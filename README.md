@@ -53,7 +53,7 @@ For each of these approaches we compare the predictions of the model with the re
 
 ```
 Accuracy of Decision Tree classifier on training set: 1.0
-Accuracy of Decision Tree classifier on test set: 0.935
+Accuracy of Decision Tree classifier on test set: 0.929
 
 Accuracy of K-NN classifier on training set: 0.997872340426
 Accuracy of K-NN classifier on test set: 0.997
@@ -66,9 +66,8 @@ Accuracy of LDA classifier on test set: 0.979
 Accuracy of GNB classifier on training set: 0.953191489362
 Accuracy of GNB classifier on test set: 0.934
 
-Accuracy of SVM classifier on training set: 1.0
-Accuracy of SVM classifier on test set: 0.09
-
+Accuracy of SVM classifier on training set: 0.998784194529
+Accuracy of SVM classifier on test set: 0.98
 ```
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
