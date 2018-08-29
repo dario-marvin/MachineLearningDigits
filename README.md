@@ -74,7 +74,7 @@ Accuracy of SVM classifier on test set: 0.09
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
 </p>
 
-The results of the classification show some relatively good values, around 90% of success, although a couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs poorly, as it classifies every image as the same value every time, thus getting the prediction right only 1/10 of the time.
+The results of the classification show some relatively good values, around 95% of success, although a couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs poorly, as it classifies every image as the same value every time, thus getting the prediction right only 1/10 of the time.
 
 The method that performs the best in both the train and test sets is the k-nearest neighbors algorithm, with a score of 0.997 in the test set, which means only 3 images were misclassified over the 1000 analyzed.  
 For this classifier we print classification report and confusion matrix.
