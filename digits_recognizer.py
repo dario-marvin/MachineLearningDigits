@@ -1,4 +1,5 @@
 from PIL import Image
+from random import randint
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
