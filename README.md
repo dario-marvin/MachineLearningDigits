@@ -53,18 +53,18 @@ For each of these approaches we compare the predictions of the model with the re
 
 ```
 Accuracy of Decision Tree classifier on training set: 1.0
-Accuracy of Decision Tree classifier on test set: 0.872
+Accuracy of Decision Tree classifier on test set: 0.935
 
-Accuracy of K-NN classifier on training set: 0.998480243161
+Accuracy of K-NN classifier on training set: 0.997872340426
 Accuracy of K-NN classifier on test set: 0.997
 
 /usr/local/lib/python3.5/dist-packages/sklearn/discriminant_analysis.py:442: UserWarning: The priors do not sum to 1. Renormalizing
   UserWarning)
-Accuracy of LDA classifier on training set: 0.948024316109
-Accuracy of LDA classifier on test set: 0.901
+Accuracy of LDA classifier on training set: 0.982978723404
+Accuracy of LDA classifier on test set: 0.979
 
-Accuracy of GNB classifier on training set: 0.887841945289
-Accuracy of GNB classifier on test set: 0.858
+Accuracy of GNB classifier on training set: 0.953191489362
+Accuracy of GNB classifier on test set: 0.934
 
 Accuracy of SVM classifier on training set: 1.0
 Accuracy of SVM classifier on test set: 0.09
@@ -78,35 +78,36 @@ The results of the classification show some relatively good values, around 90% o
 
 The method that performs the best in both the train and test sets is the k-nearest neighbors algorithm, with a score of 0.997 in the test set, which means only 3 images were misclassified over the 1000 analyzed.  
 For this classifier we print classification report and confusion matrix.
+```
+             precision    recall  f1-score   support
 
-```             precision    recall  f1-score   support
-
-          0       0.98      1.00      0.99        85
-          1       0.99      1.00      0.99        98
-          2       1.00      1.00      1.00        99
+          0       1.00      1.00      1.00        85
+          1       0.98      1.00      0.99        98
+          2       0.99      1.00      0.99        99
           3       1.00      1.00      1.00        95
-          4       1.00      0.99      1.00       115
+          4       1.00      0.98      0.99       115
           5       1.00      1.00      1.00       101
-          6       1.00      0.98      0.99        95
-          7       1.00      1.00      1.00       113
+          6       1.00      1.00      1.00        95
+          7       1.00      0.99      1.00       113
           8       1.00      1.00      1.00        90
           9       1.00      1.00      1.00       109
 
 avg / total       1.00      1.00      1.00      1000
 
+
 [[ 85   0   0   0   0   0   0   0   0   0]
  [  0  98   0   0   0   0   0   0   0   0]
  [  0   0  99   0   0   0   0   0   0   0]
  [  0   0   0  95   0   0   0   0   0   0]
- [  0   1   0   0 114   0   0   0   0   0]
+ [  0   2   0   0 113   0   0   0   0   0]
  [  0   0   0   0   0 101   0   0   0   0]
- [  2   0   0   0   0   0  93   0   0   0]
- [  0   0   0   0   0   0   0 113   0   0]
+ [  0   0   0   0   0   0  95   0   0   0]
+ [  0   0   1   0   0   0   0 112   0   0]
  [  0   0   0   0   0   0   0   0  90   0]
  [  0   0   0   0   0   0   0   0   0 109]]
 
 ```
-From the confusion matrix we understand that 2 images whose real value was 6 were wrongly classified as 0 instead, and one 4 was classified as 1. We plot the images in question, together with their real and predicted values.
+From the confusion matrix we understand that two images whose real value was 4 were wrongly classified as 1 instead, and one 7 was classified as 2 instead. We plot the images in question, together with their real and predicted values.
 
 <p align="center">
   <img size=500 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
