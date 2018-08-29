@@ -131,7 +131,7 @@ We showed it is possible to retrieve the correct values of some badly scanned di
 In the near future we plan to continue using this approach on more and more complicated data, such as single badly scanned letters of the alphabet, and later complete words extracted from a real scanned book.
 
 ## How to compile and run the files
-Make sure to have downloaded the files [`page1.png`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1.png) and [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat) along with the two python source code files.  
+Make sure to have downloaded the files [`page1.png`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1.png) and [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat) in the same folder along with the two python source code files.  
 Open a terminal and navigate to your folder with the command `cd`, then run the commands
 ```
 python3 digits_recognizer.py
