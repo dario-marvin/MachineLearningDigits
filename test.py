@@ -72,7 +72,7 @@ for i in range(len(intervals) - 1):
         mean1 /= x
         mean2 /= x
 
-        if mean1 < mean2:
+        if mean1 > mean2:
             end = end - 1
         else:
             start = start + 1
@@ -120,61 +120,61 @@ for p in pix:
 
 # Plot some images of the first 8 images in the sequence
 
-for i in range(8):
-    image = np.reshape(pix[i], (7, 6))
-    plt.subplot(2, 4, i + 1)
-    plt.xticks([])
-    plt.yticks([])
-    plt.imshow(image, cmap=cm.Greys_r, interpolation='nearest')
-    plt.title('index: ' + str(i + 1))
-    plt.xlabel('value: ' + str(sequence[i]))
-plt.show()
+#~ for i in range(8):
+    #~ image = np.reshape(pix[i], (7, 6))
+    #~ plt.subplot(2, 4, i + 1)
+    #~ plt.xticks([])
+    #~ plt.yticks([])
+    #~ plt.imshow(image, cmap=cm.Greys_r, interpolation='nearest')
+    #~ plt.title('index: ' + str(i + 1))
+    #~ plt.xlabel('value: ' + str(sequence[i]))
+#~ plt.show()
 
 # We use the first 3290 numbers to train the predictor, and leave the remaining 1000 as test 
 
 n = len(pix)
 
-y_train = sequence[: n - 1000]
-X_train = pix[: n - 1000]
+y_train = sequence[: n - 100]
+X_train = pix[: n - 100]
 
-y_test = sequence[n - 1000:]
-X_test = pix[n - 1000:]
+y_test = sequence[n - 100:]
+X_test = pix[n - 100:]
 
 ### Decision Tree
 
-DTclassifier = DecisionTreeClassifier().fit(X_train, y_train)
-DTclassifier_score_train = DTclassifier.score(X_train, y_train)
-DTclassifier_score_test = DTclassifier.score(X_test, y_test)
-print('Accuracy of Decision Tree classifier on training set: ' + str(DTclassifier_score_train))
-print('Accuracy of Decision Tree classifier on test set: ' + str(DTclassifier_score_test))
-print()
+#~ DTclassifier = DecisionTreeClassifier().fit(X_train, y_train)
+#~ DTclassifier_score_train = DTclassifier.score(X_train, y_train)
+#~ DTclassifier_score_test = DTclassifier.score(X_test, y_test)
+#~ print('Accuracy of Decision Tree classifier on training set: ' + str(DTclassifier_score_train))
+#~ print('Accuracy of Decision Tree classifier on test set: ' + str(DTclassifier_score_test))
+#~ print()
 
 ### K Nearest Neighbors
 
-KNNclassifier = KNeighborsClassifier().fit(X_train, y_train)
-KNNclassifier_score_train = KNNclassifier.score(X_train, y_train)
-KNNclassifier_score_test = KNNclassifier.score(X_test, y_test)
-print('Accuracy of K-NN classifier on training set: ' + str(KNNclassifier_score_train))
-print('Accuracy of K-NN classifier on test set: ' + str(KNNclassifier_score_test))
-print()
+#~ KNNclassifier = KNeighborsClassifier().fit(X_train, y_train)
+#~ KNNclassifier_score_train = KNNclassifier.score(X_train, y_train)
+#~ KNNclassifier_score_test = KNNclassifier.score(X_test, y_test)
+#~ print('Accuracy of K-NN classifier on training set: ' + str(KNNclassifier_score_train))
+#~ print('Accuracy of K-NN classifier on test set: ' + str(KNNclassifier_score_test))
+#~ print()
 
 ### Linear Discriminant Analysis
 
-LDAclassifier = LinearDiscriminantAnalysis().fit(X_train, y_train)
-LDAclassifier_score_train = LDAclassifier.score(X_train, y_train)
-LDAclassifier_score_test = LDAclassifier.score(X_test, y_test)
-print('Accuracy of LDA classifier on training set: ' + str(LDAclassifier_score_train))
-print('Accuracy of LDA classifier on test set: ' + str(LDAclassifier_score_test))
-print()
+#~ LDAclassifier = LinearDiscriminantAnalysis().fit(X_train, y_train)
+#~ LDAclassifier_score_train = LDAclassifier.score(X_train, y_train)
+#~ LDAclassifier_score_test = LDAclassifier.score(X_test, y_test)
+#~ print('Accuracy of LDA classifier on training set: ' + str(LDAclassifier_score_train))
+#~ print('Accuracy of LDA classifier on test set: ' + str(LDAclassifier_score_test))
+#~ print()
 
 ### Gaussian Naive Bayes
 
-GNBclassifier = GaussianNB().fit(X_train, y_train)
-GNBclassifier_score_train = GNBclassifier.score(X_train, y_train)
-GNBclassifier_score_test = GNBclassifier.score(X_test, y_test)
-print('Accuracy of GNB classifier on training set: ' + str(GNBclassifier_score_train))
-print('Accuracy of GNB classifier on test set: ' + str(GNBclassifier_score_test))
-print()
+#~ GNBclassifier = GaussianNB().fit(X_train, y_train)
+#~ GNBclassifier_score_train = GNBclassifier.score(X_train, y_train)
+#~ GNBclassifier_score_test = GNBclassifier.score(X_test, y_test)
+#~ print('Accuracy of GNB classifier on training set: ' + str(GNBclassifier_score_train))
+#~ print('Accuracy of GNB classifier on test set: ' + str(GNBclassifier_score_test))
+#~ print()
 
 ### Support Vector Machines
 
@@ -187,51 +187,51 @@ print()
 
 # Plot some images of the data
 
-N = 5
-train_set = (DTclassifier_score_train, KNNclassifier_score_train, LDAclassifier_score_train, GNBclassifier_score_train,
-             SVCclassifier_score_train)
-test_set = (DTclassifier_score_test, KNNclassifier_score_test, LDAclassifier_score_test, GNBclassifier_score_test,
-            SVCclassifier_score_test)
+#~ N = 5
+#~ train_set = (DTclassifier_score_train, KNNclassifier_score_train, LDAclassifier_score_train, GNBclassifier_score_train,
+             #~ SVCclassifier_score_train)
+#~ test_set = (DTclassifier_score_test, KNNclassifier_score_test, LDAclassifier_score_test, GNBclassifier_score_test,
+            #~ SVCclassifier_score_test)
 
-ind = np.arange(N) + .15  # the x locations for the groups
-width = 0.35  # the width of the bars
-fig, ax = plt.subplots(figsize=(8, 6))
+#~ ind = np.arange(N) + .15  # the x locations for the groups
+#~ width = 0.35  # the width of the bars
+#~ fig, ax = plt.subplots(figsize=(8, 6))
 
-extra_space = 0.05
-ax.bar(ind, train_set, width, color='r', label='train')
-ax.bar(ind + width + extra_space, test_set, width, color='b', label='test')
+#~ extra_space = 0.05
+#~ ax.bar(ind, train_set, width, color='r', label='train')
+#~ ax.bar(ind + width + extra_space, test_set, width, color='b', label='test')
 
-ax.set_ylabel('Score')
-ax.set_title('Classifiers comparison')
-ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.15), ncol=2)
-ax.set_xticks(ind + width + extra_space)
-ax.set_xticklabels(('DT', 'KNN', 'LDA', 'GNB', 'SVC'))
+#~ ax.set_ylabel('Score')
+#~ ax.set_title('Classifiers comparison')
+#~ ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.15), ncol=2)
+#~ ax.set_xticks(ind + width + extra_space)
+#~ ax.set_xticklabels(('DT', 'KNN', 'LDA', 'GNB', 'SVC'))
 
-plt.show()
+#~ plt.show()
 
 # Print report and confusion matrix for KNN classifier     
 
-predicted = KNNclassifier.predict(X_test)
+predicted = SVCclassifier.predict(X_test)
 print(classification_report(y_test, predicted))
 print()
 print(confusion_matrix(y_test, predicted))
 
 # Retrieve and plot the images that confuse the KNN predictor
 
-wrong_predictions = []
+#~ wrong_predictions = []
 
-for i in range(len(predicted)):
-    if predicted[i] != y_test[i]:
-        img = [pix[3290 + i], predicted[i], y_test[i]]
-        wrong_predictions.append(img)
+#~ for i in range(len(predicted)):
+    #~ if predicted[i] != y_test[i]:
+        #~ img = [pix[3290 + i], predicted[i], y_test[i]]
+        #~ wrong_predictions.append(img)
 
-for index, image in enumerate(wrong_predictions):
-    img = np.reshape(image[0], (7, 6))
-    plt.figure.figsize = (8, 4)
-    plt.subplot(1, 3, index + 1)
-    plt.xticks([])
-    plt.yticks([])
-    plt.imshow(img, cmap=cm.Greys_r, interpolation='nearest')
-    plt.title('Real: ' + str(image[2]))
-    plt.xlabel('Predicted: ' + str(image[1]))
-plt.show()
+#~ for index, image in enumerate(wrong_predictions):
+    #~ img = np.reshape(image[0], (7, 6))
+    #~ plt.figure.figsize = (8, 4)
+    #~ plt.subplot(1, 3, index + 1)
+    #~ plt.xticks([])
+    #~ plt.yticks([])
+    #~ plt.imshow(img, cmap=cm.Greys_r, interpolation='nearest')
+    #~ plt.title('Real: ' + str(image[2]))
+    #~ plt.xlabel('Predicted: ' + str(image[1]))
+#~ plt.show()
