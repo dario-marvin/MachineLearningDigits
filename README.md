@@ -74,9 +74,9 @@ Accuracy of SVM classifier on test set: 0.98
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/classifier_comparison.png">
 </p>
 
-The results of the classification show some relatively good values, around 95% of success, although a couple of things should be noted: in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized. Secondly, the SVM classifier performs poorly, as it classifies every image as the same value every time, thus getting the prediction right only 1/10 of the time.
+The results of the classification show some relatively good values, around 95% of success, although it should be noted that in the LDA analysis we receive a warning saying the priors do not sum to one and thus will be renormalized.
 
-The method that performs the best in both the train and test sets is the k-nearest neighbors algorithm, with a score of 0.997 in the test set, which means only 3 images were misclassified over the 1000 analyzed.  
+The method that performs best in the Test Set is the k-nearest neighbors algorithm, with a score of 0.997, which means only 3 images were misclassified over the 1000 analyzed.  
 For this classifier we print classification report and confusion matrix.
 ```
              precision    recall  f1-score   support
@@ -107,14 +107,16 @@ avg / total       1.00      1.00      1.00      1000
  [  0   0   0   0   0   0   0   0   0 109]]
 
 ```
-From the confusion matrix we understand that two images whose real value was 4 were wrongly classified as 1 instead, and one 7 was classified as 2 instead. We plot the images in question, together with their real and predicted values.
+From the confusion matrix we understand that two images whose real value was 4 were wrongly classified as 1 instead, and one 7 was classified as 2. To understand how the system got confused, we plot the images in question, together with their real and predicted values.
 
 <p align="center">
   <img size=500 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
 </p>
 
+Because the image are (really) badly scanned, the central part in both the two 4 is shifted one pixel left and thus confused as the straight part of a 1. Similarly, the horizontal line of the considered 7 is shifted one pixel down, hence the confusion with the upper part of a 2. Luckily these seem to be isolated cases of particularly poor scanning performance.
+
 ## Further experiments
-### Dimensionality curse
+### Curse of dimensionality
 In the previous section we used 3290 images to train the predictors, but how would have the score performed if we had had a much smaller set to train with? What is a "good" train set size? To answer these questions, we train the classifier with gradually larger trrain set size and report the score. To be consistent, we test the predictors on the same test set, the last 1000 observations in the sequence.  
 We remind that as general rule of thumb, the "curse of dimensionality" says the minimum number of observations should be the 5 times the dimensionality of the images, in our case 210 observations, so we also plot a black vertical line corresponding to that value.
 
