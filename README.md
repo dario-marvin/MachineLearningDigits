@@ -117,15 +117,26 @@ Because the image are (really) badly scanned, the central part in both the two 4
 
 ## Further experiments
 ### Curse of dimensionality
-In the previous section we used 3290 images to train the predictors, but how would have the score performed if we had had a much smaller set to train with? What is a "good" train set size? To answer these questions, we train the classifier with gradually larger trrain set size and report the score. To be consistent, we test the predictors on the same test set, the last 1000 observations in the sequence.  
-We remind that as general rule of thumb, the "curse of dimensionality" says the minimum number of observations should be the 5 times the dimensionality of the images, in our case 210 observations, so we also plot a black vertical line corresponding to that value.
+In the previous section we used 3290 images to train the predictors, but what would have happened if we had had a much smaller set to train with? What is a "good" Train Set size? To answer these questions, we train the classifier with gradually larger amount of images and report the scores each time. To be consistent, we test the predictors always on the same Test Set, the last 1000 observations in the sequence.  
+We remind that as a general rule of thumb, the "curse of dimensionality" says the minimum number of observations should be the 5 times the dimensionality of the images, in our case 210 observations, so we also plot a black vertical line corresponding to that value.
 
 <p align="center">
   <img size=500 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/experiment.png">
 </p>
 
-We can see from the graph that the predictors indeed start the regolarize after the indicated threshold of 210 observations, however they keep improving until around 500 observations and then they are basically constant.
+We can see from the graph that the predictors indeed start the regolarize somewhere around the indicated threshold of 210 observations, however they keep improving until around a Train Set containing at least 500 observations, after which the score is basically constant.
 
 ## Conclusion and future works
-We showed it is possible to retrieve the correct values of some badly scanned digits with a precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbors approach.  
+We showed it is possible to retrieve the correct values of some badly scanned digits with a high precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbors algorithm.  
 In the near future we plan to continue using this approach on more and more complicated data, such as single badly scanned letters of the alphabet, and later complete words extracted from a real scanned book.
+
+## How to compile and run the files
+Make sure to have downloaded the files [`page1.png`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1.png) and [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat) along with the two python source code files.  
+Open a terminal and navigate to your folder with the command `cd`, then run the commands
+```
+python3 digits_recognizer.py
+```
+and
+```
+python3 experiments.py
+```
