@@ -8,8 +8,8 @@ To verify whether our idea is feasible, we create a dataset using a low quality 
 
 ## Methodology
 ### Document creation
-To create our dataset we generated a random sequence of 4290 single digits, which can be observed in the file [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat). A PDF file containing this sequence was then compiled using LaTeX and the resulting file was printed in draft quality, scanned at lowest quality setting (75 dpi) and finally saved as a PNG image.  
-In the next figures you can see the upper part of the resulting PNG, and a detail of the upper left corner.
+To create our dataset we generated a random sequence of 4290 single digits, which can be observed in the file [`sequence.dat`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/sequence.dat). A PDF file containing this sequence was then compiled using LaTeX and the resulting file was printed in draft quality, scanned at lowest quality setting (75 dpi) and finally saved as a PNG image in the file [`page1.png`](https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1.png).  
+In the next figures you can see the upper part of the resulting PNG, and a magnified detail of the upper left corner.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_ex.png">
@@ -21,18 +21,18 @@ In the next figures you can see the upper part of the resulting PNG, and a detai
 
 ### Dataset extraction
 
-Of course, it is unthinkable to manually save the pixels of every single digit in the sequence, so we used image processing instead. As a first step, we compute the mean of the pixel values for every row of pixels composing the image. If there are only clear pixels, i.e. it is not a row containing numbers, its mean will be relatively high (remember white RBG value is 255 and black is 0). If instead we cross some darker pixels, the mean will be lower.  
+Of course, it is unthinkable to manually save the pixels of every single digit in the sequence, so we used image processing instead. As a first step, we compute the mean of the pixel values for every row of pixels composing the image. If there are only clear pixels, i.e. it is not a row containing numbers, the mean of the row will be relatively high (remember white RBG value is 255 and black is 0). If instead we cross some darker pixels, the mean will be lower.  
 Thus we select all rows with mean pixel value higher than a fixed threshold and to illustrate how the process works, we color them in white on the previous image.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/page1_modified_ex.png">
 </p>
 
-At this point, the remaining stripes of pixels separated by white lines should contain all our numbers. In a perfect world, all stripes would have the same height, but sadly it's not our case, as it ranges from 7 to 9 pixel. So we decided to set universal height 7 pixels for every number image, and in case a stripe was 8 pixel tall we ignored the uppermost or lowermost row depending on which one has the highest pixel mean value (i.e. the clearest between the two, which should in theory contain less information).  
+At this point, the remaining stripes of pixels separated by white lines should contain all our numbers. In a perfect world, all stripes would have the same height, but sadly it's not our case, as it ranges from 7 to 9 pixels. So we decided to set universal height 7 pixels for every number image, and in case a stripe was 8 or 9 pixels tall we ignored the uppermost or lowermost row or even both depending on which one has the highest pixel mean value (i.e. the least information).  
 
 To capture the digit images on the stripes, the idea is similar to the proceeding method: for each column in the stripe we compute the mean of the pixel values. We start with the leftmost column and search until we obtain a mean value smaller than a fixed threshold, meaning that the column contains some dark pixels, hence a number. From there we select the previous column (even if it has only clear pixels) and the following 5, as that's the width in pixel of the average number. From there we start the search again until we find another number or we reach the end of the stripe.
 
-In the end, each image of a digit will be composed of 6 pixels in width and 7 in height. We show here the images extracted for the first 8 digits in the sequence, together with their real value.
+In the end, each image of a digit will be composed of 6 pixels in width and 7 in height. We show here the images extracted for the first 8 digits in the sequence and their real value.
 
 <p align="center">
   <img width=600 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/list_beginning.png">
@@ -47,7 +47,8 @@ Since it is well known there is not a perfect general learning algorithm for eve
 - Gaussian naive Bayes (GNB)
 - Support Vector Machines (SVM)
 
-For each of these approaches we compare the predictions of the model with the real values for the 1000 images in the test set, and we also ask the algorithm to classify the images it used to train itself.
+For each of these approaches we train a classifier using the first 3290 images, which will compose our Training Set, then we
+ask the model to make a prediction on the value of the remaining 1000 images, which will be our Test Set. We finally compare the predictions with the real values.
 
 ## Results
 
