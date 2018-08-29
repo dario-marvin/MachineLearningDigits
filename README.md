@@ -113,6 +113,13 @@ From the confusion matrix we understand that two images whose real value was 4 w
   <img size=500 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/wrong_predictions.png">
 </p>
 
+## Further experiments
+### Dimensionality curse
+In the previous section we used 3290 images to train the predictors, but how would have the score performed if we had had a much smaller set to train with? What is a "good" train set size? To answer these questions, we train the classifier with gradually larger trrain set size and report the score. We remind that as general rule of thumb, the "curse of dimensionality" says the minimum number of observations should be the 5 times the dimensionality of the images, in our case 210 observations, so we also plot a black vertical line corresponding to that value.
+
+<p align="center">
+  <img size=500 src="https://github.com/dario-marvin/MachineLearningDigits/blob/master/experiment.png">
+</p>
 
 ## Conclusion and future works
 We showed it is possible to retrieve the correct values of some badly scanned digits with a precision of 99.7%. The classifier that seems to work best for this problem is the k-nearest neighbors approach.  
