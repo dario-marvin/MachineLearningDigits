@@ -203,6 +203,7 @@ ax.bar(ind, train_set, width, color='r', label='train')
 ax.bar(ind + width + extra_space, test_set, width, color='b', label='test')
 
 ax.set_ylabel('Score')
+ax.set_ylim(0.9, 1.0) 
 ax.set_title('Classifiers comparison')
 ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.15), ncol=2)
 ax.set_xticks(ind + width + extra_space)
